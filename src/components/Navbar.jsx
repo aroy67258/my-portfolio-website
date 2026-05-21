@@ -38,7 +38,6 @@ const Navbar = () => {
           className="flex items-center space-x-2 text-xl font-extrabold tracking-wider"
         >
           <span className="bg-gradient-to-r from-cyanCustom to-purpleCustom bg-clip-text text-transparent">ANUPAM</span>
-          <span className="text-white text-xs px-2 py-0.5 rounded-full border border-cyanCustom/30 bg-cyanCustom/10">DEV</span>
         </motion.a>
 
         {/* Desktop Navigation */}

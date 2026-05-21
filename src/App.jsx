@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronRight, FaGraduationCap, FaProjectDiagram, FaTools, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaChevronRight, FaGraduationCap, FaProjectDiagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import Navbar from './components/Navbar';
+import TechnicalExpertise from './components/TechnicalExpertise';
 import Hero from './components/Hero';
+import AboutMe from './components/AboutMe';
 import HealthcareShowcase from './components/HealthcareShowcase';
 import EduMindShowcase from './components/EduMindShowcase';
 import VyomanShowcase from './components/VyomanShowcase';
 import EntertainmentShowcase from './components/EntertainmentShowcase';
+import FeedbackSection from './components/FeedbackSection';
 
 function App() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(false);
@@ -14,32 +17,7 @@ function App() {
   const [selectedVyoman, setSelectedVyoman] = useState(false);
   const [selectedEntertainment, setSelectedEntertainment] = useState(false);
 
-  const skillsData = [
-    {
-      category: "Programming Languages",
-      skills: ["C", "C++", "Python", "JavaScript"]
-    },
-    {
-      category: "Web Development",
-      skills: ["HTML", "CSS", "React.js", "Node.js", "Figma"]
-    },
-    {
-      category: "Database & Cloud",
-      skills: ["MongoDB", "MySQL", "VSCode"]
-    },
-    {
-      category: "WordPress Development",
-      skills: ["WordPress Theme Customization", "Plugin Integration", "Hosting Management"]
-    },
-    {
-      category: "AI & Design Tools",
-      skills: ["ChatGPT", "Gemini", "AI-assisted Generation", "UI/UX Prototyping"]
-    },
-    {
-      category: "Fundamentals & Soft Skills",
-      skills: ["DBMS", "OS", "Computer Networks", "Team Collaboration"]
-    }
-  ];
+
 
   const projectsData = [
     {
@@ -65,7 +43,7 @@ function App() {
       isEduMindCaseStudy: true
     },
     {
-      title: "Vyoman Lifescience — Medicine Marketing Website (Ongoing)",
+      title: "Vyoman Lifescience — Medicine Marketing Website",
       techs: ["WordPress", "Elementor", "WooCommerce", "HTML", "CSS", "JavaScript", "UI/UX Design"],
       bullets: [
         "Developing a premium, high-converting medicine marketing portal for a pharmaceutical brand.",
@@ -100,15 +78,13 @@ function App() {
       school: "Holi Mission High School",
       location: "Samastipur, Bihar",
       degree: "Senior Secondary (Class 12th), CBSE Board",
-      period: "2021 - 2022",
-      grade: "Percentage: 70%"
+      period: "2021 - 2022"
     },
     {
       school: "Central Public School",
       location: "Samastipur, Bihar",
       degree: "Secondary (Class 10th), CBSE Board",
-      period: "2020",
-      grade: "Percentage: 77%"
+      period: "2020"
     }
   ];
 
@@ -117,90 +93,9 @@ function App() {
       <Navbar />
       <Hero />
 
-      {/* About Section */}
-      <section id="about" className="py-20 relative max-w-7xl mx-auto px-6 md:px-12 w-full">
-        <div className="absolute top-0 right-[20%] w-[250px] h-[250px] bg-purpleCustom/10 rounded-full blur-[80px] -z-10"></div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-4">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-2">
-              About <span className="bg-gradient-to-r from-cyanCustom to-purpleCustom bg-clip-text text-transparent">Me</span>
-            </h2>
-            <div className="h-1.5 w-20 bg-gradient-to-r from-cyanCustom to-purpleCustom rounded-full mb-6"></div>
-          </div>
-          <div className="md:col-span-8">
-            <div className="glassmorphism p-8 rounded-2xl border border-slate-800 shadow-glass">
-              <p className="text-slate-300 leading-relaxed text-lg mb-6">
-                I am an aspiring Software Development Engineer with a strong foundation in computer science principles. 
-                I enjoy translating complex problems into clean, efficient, and user-friendly software solutions. 
-                My experience spans programming in C++, Python, and JavaScript, building responsive React applications, 
-                and experimenting with modern AI and Natural Language Processing frameworks.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-medium text-slate-400">
-                <div className="flex items-center space-x-2.5">
-                  <FaMapMarkerAlt className="text-cyanCustom" />
-                  <span>Tajpur Road, Dharampur, Samastipur, Bihar - 848101</span>
-                </div>
-                <div className="flex items-center space-x-2.5">
-                  <FaEnvelope className="text-purpleCustom" />
-                  <span>anupamroy11a@gmail.com</span>
-                </div>
-                <div className="flex items-center space-x-2.5">
-                  <FaPhoneAlt className="text-cyanCustom" />
-                  <span>+91-9709463351</span>
-                </div>
-                <div className="flex items-center space-x-2.5">
-                  <FaGraduationCap className="text-purpleCustom" />
-                  <span>B.Tech CSE Student (2023 - 2027)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutMe />
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 relative max-w-7xl mx-auto px-6 md:px-12 w-full">
-        <div className="absolute bottom-0 left-[10%] w-[300px] h-[300px] bg-cyanCustom/10 rounded-full blur-[90px] -z-10"></div>
-        
-        <div className="flex flex-col items-center text-center mb-12">
-          <div className="flex items-center space-x-2 text-cyanCustom mb-2">
-            <FaTools />
-            <span className="text-xs font-bold tracking-widest uppercase">Expertise</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white">
-            Technical <span className="bg-gradient-to-r from-cyanCustom to-purpleCustom bg-clip-text text-transparent">Skills</span>
-          </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-cyanCustom to-purpleCustom rounded-full mt-4"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillsData.map((categoryObj, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glassmorphism p-6 rounded-2xl border border-slate-800 hover:border-cyanCustom/40 hover:shadow-[0_4px_25px_rgba(6,182,212,0.08)] transition-all duration-300 group"
-            >
-              <h3 className="text-lg font-bold text-white mb-4 group-hover:text-cyanCustom transition-colors duration-300 flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-purpleCustom"></span>
-                <span>{categoryObj.category}</span>
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {categoryObj.skills.map((skill, sIdx) => (
-                  <span 
-                    key={sIdx} 
-                    className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-900/60 text-slate-300 border border-slate-800 group-hover:border-slate-700/80 transition-all duration-300 hover:text-cyanCustom-light"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <TechnicalExpertise />
 
       {/* Projects Section */}
       <section id="projects" className="py-20 relative max-w-7xl mx-auto px-6 md:px-12 w-full">
@@ -333,6 +228,9 @@ function App() {
           ))}
         </div>
       </section>
+
+
+      <FeedbackSection />
 
       {/* Footer / Contact Section */}
       <footer id="contact" className="py-16 glassmorphism border-t border-slate-800/80 mt-auto">
