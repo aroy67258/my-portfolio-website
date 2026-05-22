@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import TechnicalExpertise from './components/TechnicalExpertise';
 import Hero from './components/Hero';
 import AboutMe from './components/AboutMe';
+import Experience from './components/Experience';
 import HealthcareShowcase from './components/HealthcareShowcase';
 import EduMindShowcase from './components/EduMindShowcase';
 import VyomanShowcase from './components/VyomanShowcase';
@@ -187,6 +188,8 @@ function App() {
           ))}
         </div>
       </section>
+
+      <Experience />
 
       {/* Education Section */}
       <section id="education" className="py-20 relative max-w-7xl mx-auto px-6 md:px-12 w-full">
