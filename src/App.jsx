@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronRight, FaGraduationCap, FaProjectDiagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaChevronRight, FaGraduationCap, FaProjectDiagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaLinkedinIn, FaGithub, FaGlobe } from 'react-icons/fa';
 import Navbar from './components/Navbar';
 import TechnicalExpertise from './components/TechnicalExpertise';
 import Hero from './components/Hero';
@@ -10,6 +10,7 @@ import HealthcareShowcase from './components/HealthcareShowcase';
 import EduMindShowcase from './components/EduMindShowcase';
 import VyomanShowcase from './components/VyomanShowcase';
 import EntertainmentShowcase from './components/EntertainmentShowcase';
+import NewMaaShowcase from './components/NewMaaShowcase';
 import FeedbackSection from './components/FeedbackSection';
 
 function App() {
@@ -17,10 +18,37 @@ function App() {
   const [selectedEduMind, setSelectedEduMind] = useState(false);
   const [selectedVyoman, setSelectedVyoman] = useState(false);
   const [selectedEntertainment, setSelectedEntertainment] = useState(false);
-
-
+  const [selectedNewMaa, setSelectedNewMaa] = useState(false);
 
   const projectsData = [
+    {
+      title: "New Maa Enterprises – Digital Business Platform",
+      techs: ["React.js", "TypeScript", "Tailwind CSS", "Supabase", "GitHub", "Vercel"],
+      bullets: [
+        "Developed a production-ready full-stack business website and retailer management platform for New Maa Enterprises.",
+        "Built secure retailer registration and approval workflows, admin dashboard, content management, and database integration.",
+        "Enforced Row Level Security (RLS) policies and session persistence using Supabase authentication.",
+        "Optimized digital presence and business visibility, creating a scalable foundation for future expansion."
+      ],
+      isNewMaaCaseStudy: true,
+      liveUrl: "https://www.newmaaenterprises.in",
+      githubUrl: "",
+      isFlagship: true
+    },
+    {
+      title: "Personal Portfolio Website",
+      techs: ["React.js", "Tailwind CSS", "Framer Motion", "Vite", "GitHub", "Vercel"],
+      bullets: [
+        "Designed and developed a modern responsive developer portfolio website featuring projects, skills, experience, certifications, and contact information.",
+        "Implemented futuristic UI, glassmorphism effects, smooth animations, and mobile-first responsive design.",
+        "Integrated interactive project case study showcases and responsive overlays built using Framer Motion.",
+        "Optimized layout load speeds, SEO meta elements, and direct contact path workflows for recruiters."
+      ],
+      isPortfolio: true,
+      liveUrl: window.location.origin,
+      githubUrl: "https://github.com/aroy67258/my-portfolio-website",
+      isFlagship: true
+    },
     {
       title: "AI-Powered Healthcare Queue & Appointment Platform (Ongoing)",
       techs: ["Next.js", "React", "TypeScript", "Node.js", "Socket.io", "PostgreSQL", "Prisma"],
@@ -121,19 +149,26 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="glassmorphism p-8 rounded-2xl border border-slate-800 hover:border-purpleCustom/40 transition-all duration-300 flex flex-col justify-between h-full"
+              className={`glassmorphism p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between h-full ${project.isFlagship ? 'border-cyanCustom/50 shadow-[0_0_25px_rgba(6,182,212,0.15)] hover:border-cyanCustom/80 lg:col-span-2' : 'border-slate-800 hover:border-purpleCustom/40'}`}
             >
               <div className="flex flex-col justify-between h-full">
                 <div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.techs.map((tech, tIdx) => (
-                      <span 
-                        key={tIdx} 
-                        className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-cyanCustom/10 text-cyanCustom-light border border-cyanCustom/20"
-                      >
-                        {tech}
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.techs.map((tech, tIdx) => (
+                        <span 
+                          key={tIdx} 
+                          className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-cyanCustom/10 text-cyanCustom-light border border-cyanCustom/20"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    {project.isFlagship && (
+                      <span className="text-[10px] font-extrabold tracking-widest uppercase px-3 py-1 rounded-full bg-gradient-to-r from-cyanCustom to-purpleCustom text-white border border-white/10 shadow-[0_0_10px_rgba(6,182,212,0.3)] animate-pulse">
+                        ★ Flagship Production Project
                       </span>
-                    ))}
+                    )}
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
                   <ul className="space-y-2.5 text-slate-400 text-sm md:text-base leading-relaxed mb-6">
@@ -147,6 +182,59 @@ function App() {
                     ))}
                   </ul>
                 </div>
+                {project.isNewMaaCaseStudy && (
+                  <div className={`grid grid-cols-1 ${project.githubUrl ? 'sm:grid-cols-3' : 'sm:grid-cols-2'} gap-4 mt-6`}>
+                    <button 
+                      onClick={() => setSelectedNewMaa(true)}
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyanCustom to-purpleCustom text-white font-bold hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] transition-all flex items-center justify-center space-x-2 border border-white/10"
+                    >
+                      <span>View Case Study</span>
+                      <FaChevronRight size={12} />
+                    </button>
+                    <a 
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyanCustom/40 hover:bg-slate-850 text-white font-bold transition-all flex items-center justify-center space-x-2"
+                    >
+                      <FaGlobe size={14} />
+                      <span>Live Website</span>
+                    </a>
+                    {project.githubUrl && (
+                      <a 
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-purpleCustom/40 hover:bg-slate-850 text-white font-bold transition-all flex items-center justify-center space-x-2"
+                      >
+                        <FaGithub size={14} />
+                        <span>GitHub</span>
+                      </a>
+                    )}
+                  </div>
+                )}
+                {project.isPortfolio && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                    <a 
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyanCustom to-purpleCustom text-white font-bold hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] transition-all flex items-center justify-center space-x-2 border border-white/10"
+                    >
+                      <FaGlobe size={14} />
+                      <span>Live Demo</span>
+                    </a>
+                    <a 
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyanCustom/40 hover:bg-slate-850 text-white font-bold transition-all flex items-center justify-center space-x-2"
+                    >
+                      <FaGithub size={14} />
+                      <span>GitHub Repository</span>
+                    </a>
+                  </div>
+                )}
                 {project.isCaseStudy && (
                   <button 
                     onClick={() => setSelectedCaseStudy(true)}
@@ -261,6 +349,11 @@ function App() {
       </footer>
 
       {/* Full-Screen Case Study Modals */}
+      <AnimatePresence>
+        {selectedNewMaa && (
+          <NewMaaShowcase onClose={() => setSelectedNewMaa(false)} />
+        )}
+      </AnimatePresence>
       <AnimatePresence>
         {selectedCaseStudy && (
           <HealthcareShowcase onClose={() => setSelectedCaseStudy(false)} />
