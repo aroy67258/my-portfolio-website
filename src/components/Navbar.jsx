@@ -30,8 +30,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glassmorphism py-4 shadow-lg shadow-black/10' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glassmorphism py-4 shadow-lg shadow-black/10' : 'bg-transparent py-6'}`}>
+      <nav className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center" aria-label="Main Navigation">
         {/* Logo */}
         <motion.a 
           href="#home"
@@ -105,7 +105,7 @@ const Navbar = () => {
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -121,7 +121,7 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a 
-                    href={link.href}
+                     href={link.href}
                     onClick={() => setIsOpen(false)}
                     className="block text-slate-300 hover:text-cyanCustom py-2 transition-colors duration-300"
                   >
@@ -166,7 +166,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 };
 

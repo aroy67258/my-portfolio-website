@@ -135,7 +135,8 @@ function App() {
   return (
     <div className="bg-transparent text-slate-100 min-h-screen flex flex-col font-sans">
       <Navbar />
-      <Hero />
+      <main className="flex-grow">
+        <Hero />
 
       <AboutMe />
 
@@ -402,6 +403,7 @@ function App() {
 
 
       <FeedbackSection />
+      </main>
 
       {/* Footer / Contact Section */}
       <footer id="contact" className="py-16 glassmorphism border-t border-slate-800/80 mt-auto">

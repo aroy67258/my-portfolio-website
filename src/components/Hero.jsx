@@ -176,8 +176,11 @@ const Hero = () => {
               <div className="w-full h-full rounded-xl overflow-hidden relative">
                 <img 
                   src={profileImg} 
-                  alt="Anupam Kumar" 
+                  alt="Anupam Kumar - Software Development Engineer and Full-Stack Developer Portfolio" 
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                 />
                 {/* Cyberpunk Scanlines Over Image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-darkNavy via-transparent to-transparent opacity-80"></div>
@@ -269,8 +272,10 @@ const Hero = () => {
               <div className="flex-1 overflow-y-auto rounded-xl bg-slate-950 p-2 flex justify-center items-start">
                 <img 
                   src={resumeImg} 
-                  alt="Resume" 
+                  alt="Detailed professional resume of Anupam Kumar, Software Development Engineer" 
                   className="max-w-full h-auto rounded-lg shadow-lg border border-slate-800"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </motion.div>
