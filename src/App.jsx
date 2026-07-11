@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronRight, FaGraduationCap, FaProjectDiagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaLinkedinIn, FaGithub, FaGlobe } from 'react-icons/fa';
+import { FaChevronRight, FaGraduationCap, FaProjectDiagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaLinkedinIn, FaGithub, FaGlobe, FaClipboardList, FaCogs, FaCheckCircle, FaTerminal } from 'react-icons/fa';
 import Navbar from './components/Navbar';
 import TechnicalExpertise from './components/TechnicalExpertise';
 import Hero from './components/Hero';
@@ -11,6 +11,8 @@ import EduMindShowcase from './components/EduMindShowcase';
 import VyomanShowcase from './components/VyomanShowcase';
 import EntertainmentShowcase from './components/EntertainmentShowcase';
 import NewMaaShowcase from './components/NewMaaShowcase';
+import TRSShowcase from './components/TRSShowcase';
+import CertificationsAndAchievements from './components/CertificationsAndAchievements';
 import FeedbackSection from './components/FeedbackSection';
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
   const [selectedVyoman, setSelectedVyoman] = useState(false);
   const [selectedEntertainment, setSelectedEntertainment] = useState(false);
   const [selectedNewMaa, setSelectedNewMaa] = useState(false);
+  const [selectedTRS, setSelectedTRS] = useState(false);
 
   const projectsData = [
     {
@@ -33,6 +36,18 @@ function App() {
       isNewMaaCaseStudy: true,
       liveUrl: "https://www.newmaaenterprises.in",
       githubUrl: "",
+      isFlagship: true
+    },
+    {
+      title: "Ticket Resolution System (TRS)",
+      techs: ["Node.js", "Express.js", "MySQL", "EJS", "Bootstrap", "JavaScript", "HTML", "CSS", "Git"],
+      bullets: [
+        "Designed and developed an enterprise-level Ticket Resolution System (TRS) to streamline issue reporting, ticket assignment, and resolution tracking.",
+        "Contributed to frontend development, backend integration, database design, authentication, dashboard development, and testing in a real-world organizational environment.",
+        "Implemented secure role-based authentication (Admin, Vendor, User) and normalized MySQL database schemas.",
+        "Designed real-time ticket status workflows (Open → In Progress → Resolved → Closed) alongside automated email notification systems."
+      ],
+      isTRS: true,
       isFlagship: true
     },
     {
@@ -156,19 +171,29 @@ function App() {
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                     <div className="flex flex-wrap gap-2">
                       {project.techs.map((tech, tIdx) => (
-                        <span 
+                        <motion.span 
                           key={tIdx} 
-                          className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-cyanCustom/10 text-cyanCustom-light border border-cyanCustom/20"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-cyanCustom/10 text-cyanCustom-light border border-cyanCustom/20 cursor-default hover:bg-cyanCustom/20 hover:text-white transition-all duration-300"
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
-                    {project.isFlagship && (
+                    {project.isTRS ? (
+                      <div className="flex flex-wrap gap-2">
+                        <span className="text-[10px] font-extrabold tracking-widest uppercase px-3 py-1 rounded-full bg-cyanCustom/10 text-cyanCustom-light border border-cyanCustom/30 shadow-[0_0_10px_rgba(6,182,212,0.2)]">
+                          💼 Enterprise Project
+                        </span>
+                        <span className="text-[10px] font-extrabold tracking-widest uppercase px-3 py-1 rounded-full bg-purpleCustom/10 text-purpleCustom-light border border-purpleCustom/30 shadow-[0_0_10px_rgba(168,85,247,0.2)] animate-pulse">
+                          ⚡ NHPC Internship Project
+                        </span>
+                      </div>
+                    ) : project.isFlagship ? (
                       <span className="text-[10px] font-extrabold tracking-widest uppercase px-3 py-1 rounded-full bg-gradient-to-r from-cyanCustom to-purpleCustom text-white border border-white/10 shadow-[0_0_10px_rgba(6,182,212,0.3)] animate-pulse">
                         ★ Flagship Production Project
                       </span>
-                    )}
+                    ) : null}
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
                   <ul className="space-y-2.5 text-slate-400 text-sm md:text-base leading-relaxed mb-6">
@@ -181,6 +206,41 @@ function App() {
                       </li>
                     ))}
                   </ul>
+                  {project.isTRS && (
+                    <div className="mt-4 mb-6 p-4 rounded-xl bg-slate-950/50 border border-slate-800/80 space-y-3">
+                      <span className="text-[10px] font-bold tracking-widest uppercase text-slate-500 block">TRS Lifecycle Workflow</span>
+                      <div className="flex items-center justify-between text-[9px] sm:text-[10px] text-slate-400 font-medium gap-1">
+                        <div className="flex flex-col items-center gap-1 flex-1 text-center">
+                          <div className="w-8 h-8 rounded-lg bg-cyanCustom/10 border border-cyanCustom/20 flex items-center justify-center text-cyanCustom-light">
+                            <FaClipboardList size={12} />
+                          </div>
+                          <span>1. Create Ticket</span>
+                        </div>
+                        
+                        <div className="h-px bg-slate-800 flex-1 relative min-w-[15px] mx-1">
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-cyanCustom/40 animate-ping" />
+                        </div>
+
+                        <div className="flex flex-col items-center gap-1 flex-1 text-center">
+                          <div className="w-8 h-8 rounded-lg bg-purpleCustom/10 border border-purpleCustom/20 flex items-center justify-center text-purpleCustom-light">
+                            <FaCogs size={12} />
+                          </div>
+                          <span>2. Assign Vendor</span>
+                        </div>
+
+                        <div className="h-px bg-slate-800 flex-1 relative min-w-[15px] mx-1">
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-purpleCustom/40" />
+                        </div>
+
+                        <div className="flex flex-col items-center gap-1 flex-1 text-center">
+                          <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400">
+                            <FaCheckCircle size={12} />
+                          </div>
+                          <span>3. Resolve & Close</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 {project.isNewMaaCaseStudy && (
                   <div className={`grid grid-cols-1 ${project.githubUrl ? 'sm:grid-cols-3' : 'sm:grid-cols-2'} gap-4 mt-6`}>
@@ -211,6 +271,24 @@ function App() {
                         <span>GitHub</span>
                       </a>
                     )}
+                  </div>
+                )}
+                {project.isTRS && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                    <button 
+                      onClick={() => setSelectedTRS(true)}
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyanCustom to-purpleCustom text-white font-bold hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] transition-all flex items-center justify-center space-x-2 border border-white/10"
+                    >
+                      <span>View Case Study</span>
+                      <FaChevronRight size={12} />
+                    </button>
+                    <button 
+                      onClick={() => setSelectedTRS(true)}
+                      className="w-full py-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyanCustom/40 hover:bg-slate-850 text-white font-bold transition-all flex items-center justify-center space-x-2"
+                    >
+                      <FaTerminal size={14} />
+                      <span>Project Details</span>
+                    </button>
                   </div>
                 )}
                 {project.isPortfolio && (
@@ -278,6 +356,8 @@ function App() {
       </section>
 
       <Experience />
+
+      <CertificationsAndAchievements />
 
       {/* Education Section */}
       <section id="education" className="py-20 relative max-w-7xl mx-auto px-6 md:px-12 w-full">
@@ -372,6 +452,11 @@ function App() {
       <AnimatePresence>
         {selectedEntertainment && (
           <EntertainmentShowcase onClose={() => setSelectedEntertainment(false)} />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedTRS && (
+          <TRSShowcase onClose={() => setSelectedTRS(false)} />
         )}
       </AnimatePresence>
     </div>

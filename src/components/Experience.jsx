@@ -1,11 +1,10 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
   FaBriefcase, 
   FaCalendarAlt, 
   FaChevronRight, 
   FaGlobe, 
-  FaCode, 
   FaBrain, 
   FaLayerGroup, 
   FaRocket, 
@@ -15,13 +14,49 @@ import {
 /* ─── STATISTICS DATA ──────────────────────────────────────── */
 const stats = [
   { icon: FaBrain,      label: 'Core Focus',      value: 'AI & Full-Stack', color: '#06b6d4' },
-  { icon: FaGlobe,      label: 'Work Mode',       value: '100% Remote',     color: '#a855f7' },
-  { icon: FaLayerGroup, label: 'Tech Stack',      value: '7+ Technologies', color: '#06b6d4' },
-  { icon: FaRocket,     label: 'Company Type',    value: 'Tech Startup',    color: '#a855f7' },
+  { icon: FaGlobe,      label: 'Work Mode',       value: 'On-Site & Remote', color: '#a855f7' },
+  { icon: FaLayerGroup, label: 'Tech Stack',      value: '12+ Technologies', color: '#06b6d4' },
+  { icon: FaRocket,     label: 'Company Type',    value: 'Govt & Startup',  color: '#a855f7' },
 ];
 
-/* ─── RESPONSIBILITIES DATA ────────────────────────────────── */
-const responsibilities = [
+/* ─── NHPC LIMITED DATA ────────────────────────────────────── */
+const nhpcResponsibilities = [
+  "Developed modules for the Ticket Resolution System (TRS)",
+  "Built responsive user interfaces using modern web technologies",
+  "Designed and integrated MySQL database",
+  "Implemented role-based authentication and authorization",
+  "Developed Admin, Vendor, and User dashboards",
+  "Worked on ticket lifecycle management and status tracking",
+  "Fixed bugs and improved application performance",
+  "Collaborated with mentors and team members during development"
+];
+
+const nhpcTechStack = [
+  "Node.js",
+  "Express.js",
+  "MySQL",
+  "Bootstrap",
+  "EJS",
+  "JavaScript",
+  "HTML",
+  "CSS",
+  "Git"
+];
+
+const nhpcFeatures = [
+  "Role-based login (Admin, Vendor, User)",
+  "Ticket creation and tracking",
+  "Project management",
+  "Vendor assignment",
+  "Ticket status workflow",
+  "Notifications and reminders",
+  "Dashboard analytics",
+  "Secure authentication",
+  "Responsive UI"
+];
+
+/* ─── YUGAYATRA RETAIL DATA ────────────────────────────────── */
+const yugayatraResponsibilities = [
   "Developing responsive frontend interfaces",
   "Working with React.js, JavaScript, and Tailwind CSS",
   "Assisting in backend integration and API handling",
@@ -30,8 +65,7 @@ const responsibilities = [
   "Exploring scalable startup product architecture"
 ];
 
-/* ─── TECH STACK BADGES ────────────────────────────────────── */
-const techStack = [
+const yugayatraTechStack = [
   "React.js",
   "JavaScript",
   "Tailwind CSS",
@@ -123,7 +157,7 @@ export default function Experience() {
               Contributing to <span className="text-cyanCustom">Real-World Projects</span>
             </h3>
             <p className="text-slate-400 leading-relaxed text-sm md:text-base">
-              Gaining hands-on development experience in startup environments. Working under agile flows, building modular components, and shipping optimized software.
+              Gaining hands-on development experience in diverse organizational environments. Working under agile flows, building modular components, designing secure databases, and shipping optimized enterprise software.
             </p>
           </motion.div>
 
@@ -167,14 +201,158 @@ export default function Experience() {
           </motion.div>
         </div>
 
-        {/* ════ RIGHT COLUMN: TIMELINE CARD (7 Cols) ════ */}
-        <div className="lg:col-span-7 relative pl-4 sm:pl-8">
+        {/* ════ RIGHT COLUMN: TIMELINE CARDS (7 Cols) ════ */}
+        <div className="lg:col-span-7 relative pl-4 sm:pl-8 flex flex-col gap-12">
           
           {/* Vertical Timeline Track Line */}
           <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyanCustom via-purpleCustom/50 to-transparent" />
 
-          {/* Experience Card Wrap */}
-          <motion.div {...slideInRight(0.2)} className="relative">
+          {/* ── CARD 1: NHPC LIMITED ── */}
+          <motion.div {...slideInRight(0.15)} className="relative">
+            {/* Pulsing Dot on the Timeline Track */}
+            <div className="absolute -left-[21px] sm:-left-[37px] top-6 flex items-center justify-center">
+              <span className="absolute w-6 h-6 rounded-full bg-purpleCustom/30 animate-ping" />
+              <span className="absolute w-4 h-4 rounded-full bg-cyanCustom/50 animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-purpleCustom" />
+            </div>
+
+            {/* Glowing border/background card */}
+            <div className="glassmorphism rounded-2xl border border-slate-800 hover:border-purpleCustom/35 transition-all duration-500 overflow-hidden shadow-[0_0_40px_rgba(168,85,247,0.05)] hover:shadow-[0_0_50px_rgba(168,85,247,0.1)] group">
+              {/* Glowing gradient header border */}
+              <div className="h-1 w-full bg-gradient-to-r from-purpleCustom via-cyanCustom to-purpleCustom" />
+
+              <div className="p-6 md:p-8 flex flex-col gap-6">
+                
+                {/* Header Information */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    {/* Futuristic Company Logo Placeholder SVG */}
+                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0 relative overflow-hidden group-hover:border-purpleCustom/50 transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-br from-purpleCustom/10 to-cyanCustom/10 opacity-50" />
+                      <svg className="w-7 h-7 text-purpleCustom group-hover:scale-110 transition-transform duration-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 15C6 15 7 13 9 13C11 13 12 15 14 15C16 15 17 13 19 13C21 13 22 15 23 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                        <path d="M1 18C3 18 4 16 6 16C8 16 9 18 11 18C13 18 14 16 16 16C18 16 19 18 21 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                        <path d="M13 2L6 11H12L10 20L18 9H12L13 2Z" fill="currentColor" opacity="0.8" />
+                      </svg>
+                      {/* Sub-glow inside logo */}
+                      <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-cyanCustom rounded-full blur-[4px]" />
+                    </div>
+
+                    <div>
+                      <h4 className="text-xl font-bold text-white group-hover:text-purpleCustom transition-colors duration-300">
+                        Software Engineering Intern
+                      </h4>
+                      <p className="text-sm font-semibold text-slate-300">
+                        NHPC Limited – IT Department
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Completed Badge */}
+                  <div className="flex items-center self-start sm:self-center">
+                    <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-purpleCustom/10 text-purpleCustom-light text-xs font-bold border border-purpleCustom/30 shadow-[0_0_12px_rgba(168,85,247,0.15)] relative">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purpleCustom" />
+                      Internship Completed
+                    </span>
+                  </div>
+                </div>
+
+                {/* Duration & Location details */}
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs font-medium text-slate-400 bg-slate-900/40 px-4 py-2.5 rounded-xl border border-slate-800/80">
+                  <div className="flex items-center gap-1.5">
+                    <FaCalendarAlt className="text-cyanCustom" />
+                    <span>Jun 2026 – Jul 2026</span>
+                  </div>
+                  <span className="hidden sm:inline text-slate-700">•</span>
+                  <div className="flex items-center gap-1.5">
+                    <FaGlobe className="text-purpleCustom" />
+                    <span>On-site Internship</span>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div>
+                  <p className="text-sm md:text-base text-slate-300 leading-relaxed font-medium">
+                    Worked on the design and development of an enterprise-level <strong className="text-cyanCustom">Ticket Resolution System (TRS)</strong> to streamline issue reporting, ticket assignment, and resolution tracking. Contributed to frontend development, backend integration, database design, authentication, dashboard development, and testing in a real-world organizational environment.
+                  </p>
+                </div>
+
+                {/* Project Highlight Container */}
+                <div className="p-5 rounded-xl bg-slate-950/40 border border-slate-800/80 hover:border-purpleCustom/30 transition-all duration-300">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="p-1.5 rounded-lg bg-cyanCustom/10 border border-cyanCustom/20 text-cyanCustom-light">
+                      <FaTerminal size={12} />
+                    </div>
+                    <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400">Project Highlight</span>
+                  </div>
+                  <h5 className="text-sm font-bold text-white mb-2">Ticket Resolution System (TRS)</h5>
+                  <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                    A comprehensive issue management solution with a robust workflow architecture designed for organization-wide deployment.
+                  </p>
+                  
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                    {nhpcFeatures.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-cyanCustom flex-shrink-0" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
+
+                {/* Responsibilities list */}
+                <div>
+                  <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Key Responsibilities</h5>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {nhpcResponsibilities.map((resp, rIdx) => (
+                      <motion.li 
+                        key={rIdx}
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-2.5 text-xs text-slate-400 group/item"
+                      >
+                        <span className="text-purpleCustom mt-0.5 flex-shrink-0 transition-colors duration-300 group-hover/item:text-cyanCustom">
+                          <FaChevronRight size={10} />
+                        </span>
+                        <span className="group-hover/item:text-slate-200 transition-colors duration-300 leading-relaxed">{resp}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
+
+                {/* Tech Stack Badges */}
+                <div>
+                  <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Technologies Stacked</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {nhpcTechStack.map((tech, tIdx) => (
+                      <motion.span 
+                        key={tIdx} 
+                        whileHover={{ scale: 1.08, y: -2 }}
+                        className="text-[10px] font-bold tracking-wider uppercase px-3 py-1.5 rounded-lg border transition-all duration-300 cursor-default"
+                        style={{
+                          background: tIdx % 2 === 0 ? 'rgba(168,85,247,0.06)' : 'rgba(6,182,212,0.06)',
+                          borderColor: tIdx % 2 === 0 ? 'rgba(168,85,247,0.2)' : 'rgba(6,182,212,0.2)',
+                          color: tIdx % 2 === 0 ? '#d8b4fe' : '#67e8f9',
+                        }}
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── CARD 2: YUGAYATRA RETAIL ── */}
+          <motion.div {...slideInRight(0.35)} className="relative">
             {/* Pulsing Dot on the Timeline Track */}
             <div className="absolute -left-[21px] sm:-left-[37px] top-6 flex items-center justify-center">
               <span className="absolute w-6 h-6 rounded-full bg-cyanCustom/30 animate-ping" />
@@ -250,7 +428,7 @@ export default function Experience() {
                 <div>
                   <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Key Responsibilities</h5>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {responsibilities.map((resp, rIdx) => (
+                    {yugayatraResponsibilities.map((resp, rIdx) => (
                       <motion.li 
                         key={rIdx}
                         whileHover={{ x: 3 }}
@@ -272,7 +450,7 @@ export default function Experience() {
                 <div>
                   <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Technologies Stacked</h5>
                   <div className="flex flex-wrap gap-2">
-                    {techStack.map((tech, tIdx) => (
+                    {yugayatraTechStack.map((tech, tIdx) => (
                       <motion.span 
                         key={tIdx} 
                         whileHover={{ scale: 1.08, y: -2 }}

@@ -13,52 +13,42 @@ const skillCategories = [
   {
     id: 'lang', label: 'Programming Languages', icon: FaCode, color: '#06b6d4',
     skills: [
-      { name: 'JavaScript', level: 88 }, { name: 'Python', level: 82 },
-      { name: 'C++', level: 75 }, { name: 'TypeScript', level: 72 },
-      { name: 'C', level: 70 }, { name: 'SQL', level: 68 }, { name: 'Java', level: 60 },
+      { name: 'JavaScript', level: 90 }, { name: 'TypeScript', level: 80 },
+      { name: 'Python', level: 82 }, { name: 'C++', level: 75 },
+      { name: 'C', level: 70 }, { name: 'SQL', level: 85 },
     ]
   },
   {
     id: 'fe', label: 'Frontend Development', icon: FaGlobe, color: '#a855f7',
     skills: [
-      { name: 'React.js', level: 90 }, { name: 'Next.js', level: 78 },
-      { name: 'Tailwind CSS', level: 88 }, { name: 'Framer Motion', level: 80 },
-      { name: 'HTML5', level: 95 }, { name: 'CSS3', level: 90 },
-      { name: 'Redux', level: 65 }, { name: 'Bootstrap', level: 75 },
+      { name: 'React.js', level: 92 }, { name: 'Tailwind CSS', level: 90 },
+      { name: 'Bootstrap', level: 85 }, { name: 'UI/UX Design', level: 85 },
+      { name: 'Framer Motion', level: 82 }, { name: 'HTML5 & CSS3', level: 95 },
     ]
   },
   {
     id: 'be', label: 'Backend Development', icon: FaLayerGroup, color: '#06b6d4',
     skills: [
-      { name: 'Node.js', level: 80 }, { name: 'Express.js', level: 80 },
-      { name: 'FastAPI', level: 72 }, { name: 'REST APIs', level: 85 },
-      { name: 'JWT / Auth', level: 75 }, { name: 'API Integration', level: 82 },
+      { name: 'Node.js', level: 85 }, { name: 'Express.js', level: 85 },
+      { name: 'FastAPI', level: 78 }, { name: 'REST APIs', level: 88 },
+      { name: 'API Integration', level: 86 }, { name: 'Authentication', level: 85 },
+      { name: 'RBAC (Role Access)', level: 82 },
     ]
   },
   {
     id: 'db', label: 'Database & Cloud', icon: FaDatabase, color: '#a855f7',
     skills: [
-      { name: 'MongoDB', level: 82 }, { name: 'PostgreSQL', level: 70 },
-      { name: 'MySQL', level: 72 }, { name: 'Firebase', level: 65 },
-      { name: 'MongoDB Atlas', level: 78 },
+      { name: 'MySQL', level: 82 }, { name: 'Supabase', level: 80 },
+      { name: 'Database Design', level: 82 }, { name: 'PostgreSQL', level: 75 },
+      { name: 'MongoDB', level: 80 },
     ]
   },
   {
-    id: 'ai', label: 'AI & Modern Tools', icon: FaBrain, color: '#06b6d4',
+    id: 'tools', label: 'Tools & DevOps', icon: FaWrench, color: '#a855f7',
     skills: [
-      { name: 'OpenAI API', level: 80 }, { name: 'Gemini API', level: 78 },
-      { name: 'Prompt Engineering', level: 85 }, { name: 'RAG Systems', level: 72 },
-      { name: 'LangChain', level: 65 }, { name: 'Cursor AI', level: 88 },
-      { name: 'Antigravity', level: 90 },
-    ]
-  },
-  {
-    id: 'tools', label: 'Tools & Platforms', icon: FaWrench, color: '#a855f7',
-    skills: [
-      { name: 'Git / GitHub', level: 88 }, { name: 'VS Code', level: 95 },
-      { name: 'Vercel', level: 85 }, { name: 'Figma', level: 70 },
-      { name: 'Postman', level: 78 }, { name: 'Linux', level: 65 },
-      { name: 'Netlify', level: 80 },
+      { name: 'Git & GitHub', level: 88 }, { name: 'Vercel', level: 85 },
+      { name: 'Deployment', level: 80 }, { name: 'Testing & Debugging', level: 82 },
+      { name: 'Postman', level: 80 }, { name: 'VS Code', level: 95 },
     ]
   },
 ];
